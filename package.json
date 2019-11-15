@@ -2,7 +2,7 @@
   "name": "goit-react-hw-03-image-finder",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Whisker1927.github.io/goit-react-03-image-finder",
+  "homepage": "https://Whisker1927.github.io/goit-react-hw-03-image-finder",
   "dependencies": {
     "axios": "^0.19.0",
     "gh-pages": "^2.1.1",
