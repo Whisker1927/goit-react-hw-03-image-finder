@@ -18,15 +18,8 @@ class App extends Component {
     isModalOpen: false,
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    const { query } = this.state;
-    if (prevState.query !== query) {
-      this.fetchImages();
-    }
-  }
-
   onSubmit = query => {
-    this.setState({ query, images: [], page: 1 });
+    this.setState({ query, images: [], page: 1 }, this.fetchImages());
   };
 
   onModalOpen = largeImageURL => {
@@ -68,6 +61,7 @@ class App extends Component {
       largeImageURL,
       isModalOpen,
     } = this.state;
+
     return (
       <div className={styles.app}>
         <SearchForm onSubmit={this.onSubmit} />
