@@ -19,7 +19,10 @@ class App extends Component {
   };
 
   onSubmit = query => {
-    this.setState({ query, images: [], page: 1 }, this.fetchImages());
+    this.setState(
+      { query, images: [], page: 1, isLoading: true },
+      this.fetchImages,
+    );
   };
 
   onModalOpen = largeImageURL => {
@@ -46,7 +49,7 @@ class App extends Component {
         });
       })
       .catch(error => {
-        this.setState('ERROR!');
+        this.setState(alert('ERROR!'));
       })
       .finally(() => {
         this.setState({ isLoading: false });
@@ -61,7 +64,6 @@ class App extends Component {
       largeImageURL,
       isModalOpen,
     } = this.state;
-
     return (
       <div className={styles.app}>
         <SearchForm onSubmit={this.onSubmit} />
